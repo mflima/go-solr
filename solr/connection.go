@@ -139,7 +139,7 @@ func (c *Connection) SetBasicAuth(username, password string) {
 }
 
 func (c *Connection) Resource(source string, params *url.Values) (*[]byte, error) {
-	params.Set("wt", "json")
+	params.Set("wt", "ejson")
 	r, err := HTTPGet(fmt.Sprintf("%s/%s/%s?%s", c.url.String(), c.core, source, params.Encode()), nil, c.username, c.password)
 	return &r, err
 
