@@ -87,6 +87,7 @@ type SolrResult struct {
 	Stats          map[string]interface{}
 	MoreLikeThis   map[string]interface{} // MoreLikeThis using Search (select) Component
 	SpellCheck     map[string]interface{} // SpellCheck using SpellCheck (spell) Component
+	Suggest        map[string]interface{} // Suggest using custom Component
 	NextCursorMark string
 }
 
