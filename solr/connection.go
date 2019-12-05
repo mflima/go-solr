@@ -150,7 +150,9 @@ func (c *Connection) AddHeader(key, value string) {
 }
 
 func (c *Connection) Resource(source string, params *url.Values) (*[]byte, error) {
-	params.Set("wt", "ejson")
+	if len(params.Get("wt")) == 0 {
+		params.Set("wt", "ejson")
+	}
 	baseUrl := fmt.Sprintf("%s/%s/%s", c.url.String(), c.core, source)
 	encodedParameters := params.Encode()
 	var r []byte
