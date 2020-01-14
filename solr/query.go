@@ -133,6 +133,13 @@ func (q *Query) Rows(rows int) {
 	q.params.Set("rows", fmt.Sprintf("%d", rows))
 }
 
+// sfield is a spatial indexed field. It will be the document field used for spatial
+// (geocoordinate) search
+// Example: jobGeoCoordinate
+func (q *Query) Sfield(sfield string) {
+	q.params.Add("sfield", sfield)
+}
+
 func (q *Query) String() string {
 	return q.params.Encode()
 }
