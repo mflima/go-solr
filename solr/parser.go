@@ -169,6 +169,10 @@ func (parser *StandardResultParser) ParseError(response *SolrResponse, sr *SolrR
 func ParseDocResponse(docResponse map[string]interface{}, collection *Collection) {
 	collection.NumFound = int(docResponse["numFound"].(float64))
 	collection.Start = int(docResponse["start"].(float64))
+	collection.CityFilterExpansion = false
+	if val, ok := docResponse["city_filter_expansion"]; ok {
+		collection.CityFilterExpansion = bool(val.(bool))
+	}
 	if docs, ok := docResponse["docs"].([]interface{}); ok {
 		collection.Docs = make([]Document, len(docs))
 		for i, v := range docs {
