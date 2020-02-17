@@ -42,9 +42,10 @@ type SolrUpdateResponse struct {
 
 // Holding the search result
 type FireworkCollection struct {
-	Docs     *json.RawMessage
-	Start    int
-	NumFound int
+	Docs                *json.RawMessage
+	Start               int
+	NumFound            int
+	CityFilterExpansion bool
 }
 
 // Parsed result for SearchHandler response, ie /select
@@ -67,9 +68,10 @@ type FireworkSolrResult struct {
 
 // Holding the search result
 type Collection struct {
-	Docs     []Document
-	Start    int
-	NumFound int
+	Docs                []Document
+	Start               int
+	NumFound            int
+	CityFilterExpansion bool
 }
 
 // Parsed result for SearchHandler response, ie /select
